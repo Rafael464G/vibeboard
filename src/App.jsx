@@ -66,7 +66,7 @@ function App() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/Rafael"
+                href="https://www.linkedin.com/in/rafael-gonzalez-86a037370/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 p-2 rounded-xl bg-gray-100 hover:bg-[#0077b5] dark:bg-gray-800 dark:hover:bg-[#0077b5] transition-all duration-300"
