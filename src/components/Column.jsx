@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Droppable } from '@hello-pangea/dnd'
 import Card from './Card'
 import moodColors from './moodColors'
+import { v4 as uuidv4 } from 'uuid'
 
 const Column = ({ column, onAddCard, onDeleteCard }) => {
   const [showForm, setShowForm] = useState(false)
@@ -12,7 +13,7 @@ const Column = ({ column, onAddCard, onDeleteCard }) => {
     e.preventDefault()
     if (!content.trim()) return
     const newCard = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       content: content.trim(),
       mood: selectedMood
     }
@@ -71,9 +72,10 @@ const Column = ({ column, onAddCard, onDeleteCard }) => {
                 key={mood}
                 type="button"
                 onClick={() => setSelectedMood(mood)}
+                style={{ backgroundColor: moodColors[mood] }}
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition-all ${
                   selectedMood === mood ? 'ring-2 ring-blue-500' : ''
-                } bg-[${moodColors[mood]}]`}
+                }`}
               >
                 {mood}
               </button>
