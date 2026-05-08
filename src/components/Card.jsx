@@ -14,10 +14,12 @@ const Card = ({ card, index, onDeleteCard }) => {
           }`}
           style={{ ...provided.draggableProps.style }}
         >
+          {/* Círculo de mood con color */}
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center bg-[${moodColors[card.mood]}] shrink-0`}
+            className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm"
+            style={{ backgroundColor: moodColors[card.mood] || '#E5E7EB' }}
           >
-            <span className="text-sm">{card.mood}</span>
+            {card.mood}
           </div>
           <p className="flex-1 text-gray-800 text-sm dark:text-gray-100">{card.content}</p>
           <button
@@ -25,9 +27,10 @@ const Card = ({ card, index, onDeleteCard }) => {
               e.stopPropagation()
               onDeleteCard(card.id)
             }}
-            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100 text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
+            className="absolute top-1 right-1 text-gray-400 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            title="Eliminar tarjeta"
           >
-            X
+            ✕
           </button>
         </div>
       )}
